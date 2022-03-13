@@ -1,37 +1,33 @@
-# TWRP Device configuration for Motorola Edge 30
+# TWRP Device configuration for Motorola Edge 20
 
-The Motorola Edge 30 (codenamed _"dubai"_) are high-end smartphones from Motorola.
-
-It was announced in April 2022. Release date was May 2022.
+The Motorola Edge 20 (codenamed _"berlin"_) are high-end smartphones from Motorola.
 
 ## Device specifications
 
-Basic   | Spec Sheet
--------:|:-------------------------
-SoC     | Qualcomm SM7350-AE Snapdragon 778G+ 5G (5 nm)
-CPU     | Octa-core (1x2.5 GHz Cortex-A78 & 3x2.4 GHz Cortex-A78 & 4x1.8 GHz Cortex-A55)
-GPU     | Adreno 642L
-Memory  | 6 / 8 GB
-Shipped Android Version | 12
-Storage | 128 / 256 GB (UFS 3.1)
-Battery | Non-removable Li-Po 4020 mAh
-Dimensions | 159.4 x 74.2 x 6.8 mm (6.28 x 2.92 x 0.27 in)
-Display | 1080 x 2400 pixels, AMOLED, 1B colors, 144Hz, HDR10+, 950 nits (HBM)
-Rear Camera 1 | 50 MP, f/1.8, (wide), 1/1.55", 1.0µm, multi-directional PDAF, OIS
-Rear Camera 2 | 50 MP, f/2.2, 118˚ (ultrawide), 1/2.76", 0.64µm, PDAF
-Rear Camera 3 | 2 MP, f/2.4, (depth)
-Front Camera | 32 MP, f/2.3, (wide), 0.7µm
-Extras | Stereo Speakers, NFC, Bluetooth 5.2 A2DP LE, UDFPS, USB Type-C 2.0, Fast charging 33W
-Ingress Protection | IP52
-Touch Sampling Rate | 360 Hz
+| Feature                 | Specification                                                              |
+| :---------------------- | :--------------------------------                                          |
+| CPU                     | Octa-core Kryo 670 1 x 2.4 GHz + 3 x 2.2 GHz & 4 x 1.9 GHz                 |
+| Chipset                 | Qualcomm SM7325 Snapdragon 778G 5G                                         |
+| GPU                     | Adreno 642L                                                                |
+| Memory                  | 8 GB LPDDR4X                                                               |
+| Shipped Software        | Android 11                                                                 |
+| Storage                 | 128 GB / 256 GB                                                            |
+| Battery                 | 4000 mAh                                                                   |
+| Dimensions              | 163 mm (6.42 in) (h) 76 mm (2.99 in) (w) 97 mm (0.28 in) (d)               |
+| Display                 | 170.18 mm (6.7 in) 1080x2400 (385 PPI) OLED                                |
+| Rear Camera             | 108 MP, f/1.9, (wide), 1/1.52", 0.7µm, PDAF                                |
+|                         | 8 MP, f/2.4, 79mm (telephoto), 1.0µm, 3x optical zoom, PDAF, OIS           |
+|                         | 16 MP, f/2.2, 17mm, 119˚ (ultrawide), 1/3.06", 1.0µm, AF                   |
+| Front Camera            | 32 MP, f/2.3, (wide), 0.7µm                                                |
+| Release Date            | July 2021                                                                  |
 
 ## Device picture
 
-![Device Picture](https://motorolaau.vtexassets.com/arquivos/ids/156289/Motorola-edge-30-pdp-render-Silence-12-bcxm87y2.png)
+![Device Picture](https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-20-2.jpg)
 
 ## Kernel
 
-Prebuilt kernel from stock ROM user-12-S1RD32.55-67-25c3ec-release-keys
+Prebuilt kernel from stock ROM user-12-S1RGS32.53-18-22-11 b6e7c-release-keys
 
 ## Compile
 
@@ -40,7 +36,7 @@ First repo init the twrp-12.1 tree (and necessary qcom dependencies):
 ```
 mkdir ~/android/twrp-12.1
 cd ~/android/twrp-12.1
-repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 mkdir -p .repo/local_manifests
 ```
 
@@ -50,7 +46,7 @@ Then add to a local manifest (if you don't have .repo/local_manifest then make t
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <project name="osm0sis/twrp_abtemplate" path="bootable/recovery/installer" remote="github" revision="master"/>
-  <project name="android_device_motorla_dubai" path="device/motorola/dubai" remote="TeamWin" revision="android-12.1"/>
+  <project name="android_device_motorola_berlin" path="device/motorola/berlin" remote="TeamWin" revision="android-12.1"/>
 </manifest>
 ```
 

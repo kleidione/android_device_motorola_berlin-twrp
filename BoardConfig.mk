@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/motorola/dubai
+DEVICE_PATH := device/motorola/berlin
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -42,7 +42,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := dubai
+TARGET_OTA_ASSERT_DEVICE := berlin
 
 # Kernel
 BOARD_KERNEL_PAGESIZE := 4096
@@ -68,7 +68,7 @@ VENDOR_CMDLINE :=  "console=ttyMSM0,115200n8 \
                    iptable_raw.raw_before_defrag=1 \
                    ip6table_raw.raw_before_defrag=1 \
                    androidboot.hab.csv=4 \
-                   androidboot.hab.product=dubai \
+                   androidboot.hab.product=berlin \
                    androidboot.hab.cid=50 \
                    firmware_class.path=/vendor/firmware_mnt/image \
                    androidboot.init_fatal_reboot_target=recovery \
@@ -148,14 +148,16 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 # For local builds only
 #
 # TWRP zip installer
+# See https://gerrit.twrp.me/c/android_build/+/4964 for details
 ifneq ($(wildcard bootable/recovery/installer/.),)
     USE_RECOVERY_INSTALLER := true
     RECOVERY_INSTALLER_PATH := bootable/recovery/installer
 endif
 
 # Custom TWRP Versioning
+# See https://github.com/minimal-manifest-twrp/android_device_common_version-info for details
 ifneq ($(wildcard device/common/version-info/.),)
-    CUSTOM_TWRP_VERSION_PREFIX := UNOFFICIAL
+    CUSTOM_TWRP_VERSION_PREFIX := COMMUNITY
 
     include device/common/version-info/custom_twrp_version.mk
 
